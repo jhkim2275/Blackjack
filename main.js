@@ -6,10 +6,13 @@ let cards = {
 }
 let keys = Object.keys(cards);
 
-function computerChoice() {
+function drawCard() {
     let index = Math.trunc(Math.random() * cards.length);
-    let retVal = cards.keys[index];
     keys.splice(index,1);
     delete cards.keys[index];
-    return retVal;
+    return keys[index];
+}
+
+function computerChoice() {
+    const card = drawCard();
 }
