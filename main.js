@@ -3,6 +3,7 @@ let playerScore = 0;
 let computerCards = document.querySelector(".computerCards");
 let playerCards = document.querySelector(".playerCards");
 let playerTurn = true;
+let computerTurn = true;
 
 let cards = {
     spade1: 1, spade2: 2, spade3: 3, spade4: 4, spade5: 5, spade6: 6, spade7: 7, spade8: 8, spade9: 9, spade10: 10, spadeJack: 10, spadeQueen: 10, spadeKing: 10, spadeAce: 11,
@@ -18,6 +19,22 @@ function playGame(){
     playerChoice();
 }
 
+function computerChoice() {
+    while (computerScore<15){
+        computerStart();
+    }
+    if (computerScore>21){
+        playerWin();
+    } else {
+        if (playerScore>computerScore){
+            playerWin();
+        } else if (playerScore==computerScore){
+            tie();
+        } else {
+            computerWin();
+        }
+    }
+}
 
 function playerChoice() {
     if (!playerTurn){
@@ -25,14 +42,19 @@ function playerChoice() {
     }
     const stayButton = document.querySelector("#stay");
     const hitButton = document.querySelector("#hit");
-    stayButton.addEventListener("click", () => {playerTurn = false;});
+    stayButton.addEventListener("click", () => {
+        if (playerTurn){
+            playerTurn = false;
+            computerChoice();
+        }
+    });
     hitButton.addEventListener("click", () => {
         if (playerTurn){
+            playerStart(1);
             if (playerScore>21){
                 playerTurn = false;
-            } else {
-                playerStart(1);
-                playerChoice();
+                // Prompt Bust Message
+                computerWin();
             }
         }
     });
@@ -65,4 +87,26 @@ function computerStart() {
     keys.splice(index,1);
     computerScore+=cards[target];
     delete cards[target];
+}
+const cardHolder = document.querySelector(".cardHolder");
+function playerWin(){
+    setTimeout(function() {
+        const winMessage = document.createElement("h1");
+        winMessage.textContent = "Congratulations! You Win!";
+        cardHolder.appendChild(winMessage); 
+    },2000);
+}
+function computerWin() {
+    setTimeout(function() {
+        const winMessage = document.createElement("h1");
+        winMessage.textContent = "Sorry ... You Lose";
+        cardHolder.appendChild(winMessage); 
+    },2000); 
+}
+function tie() {
+    setTimeout(function() {
+        const winMessage = document.createElement("h1");
+        winMessage.textContent = "You Tied!";
+        cardHolder.appendChild(winMessage); 
+    },2000); 
 }

@@ -24,6 +24,11 @@ button {
     padding-right: 20px;
 }
 
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
 .computerCards {
     display: flex;
     flex-direction: row;
