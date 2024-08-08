@@ -34,6 +34,7 @@ playerButtons.style.display = "flex";
 playerButtons.style.flexDirection = "row";
 playerButtons.style.justifyContent = "center";
 playerButtons.style.gap = "50px";
+playerButtons.style.margin = "50px";
 
 /* Score Board*/
 let computerValue = document.createElement("h2");
