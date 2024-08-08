@@ -12,6 +12,7 @@ computerCards.style.display = "flex";
 computerCards.style.flexDirection = "row";
 computerCards.style.justifyContent = "center";
 computerCards.style.gap = "30px";
+computerCards.style.padding = "50px";
 
 /* Styling for Player Cards section*/
 let playerCards = document.createElement("div");
@@ -19,6 +20,7 @@ playerCards.style.display = "flex";
 playerCards.style.flexDirection = "row";
 playerCards.style.justifyContent = "center";
 playerCards.style.gap = "30px";
+playerCards.style.padding = "50px";
 
 /* Styling for Player action section*/
 const stayButton = document.createElement("button");
@@ -32,9 +34,24 @@ playerButtons.style.display = "flex";
 playerButtons.style.flexDirection = "row";
 playerButtons.style.justifyContent = "center";
 playerButtons.style.gap = "50px";
+
+/* Score Board*/
+let computerValue = document.createElement("h2");
+computerValue.textContent = "Computer Score: ";
+let playerValue = document.createElement("h2");
+playerValue.textContent = "Player Score: ";
+
+/* Styling scoreboard*/
+computerValue.style.display = "flex";
+computerValue.style.justifyContent = "center";
+playerValue.style.display = "flex";
+playerValue.style.justifyContent = "center";
+
+cardHolder.appendChild(computerValue);
 cardHolder.appendChild(computerCards);
 cardHolder.appendChild(playerCards);
 cardHolder.appendChild(playerButtons);
+cardHolder.appendChild(playerValue);
 
 
 let cards = {
@@ -101,6 +118,7 @@ function playerStart(numCards) {
         let target = keys[index];
         keys.splice(index,1);
         playerScore+=cards[target];
+        playerValue.textContent = "Player Score: " + playerScore;
         delete cards[target];
     }
     
@@ -115,6 +133,7 @@ function computerStart() {
     let target = keys[index];
     keys.splice(index,1);
     computerScore+=cards[target];
+    computerValue.textContent = "Computer Score: " + computerScore;
     delete cards[target];
 }
 
