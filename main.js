@@ -10,7 +10,7 @@ let cards = {
     diamond1: 1, diamond2: 2, diamond3: 3, diamond4: 4, diamond5: 5, diamond6: 6, diamond7: 7, diamond8: 8, diamond9: 9, diamond10: 10, diamondJack: 10, diamondQueen: 10, diamondKing: 10, diamondAce: 11,
 }
 let keys = Object.keys(cards);
-
+playGame();
 function playGame(){
     computerStart();
     playerStart();
@@ -18,6 +18,15 @@ function playGame(){
 
 /* The function for randomly choosing the two player cards*/
 function playerStart() {
+    for (let i=0; i<2; i++){
+        let index = Math.floor(Math.random() * Object.keys(cards).length);
+        let card = document.createElement("p");
+        card.textContent = keys[index];
+        playerCards.appendChild(card);
+        let target = keys[index];
+        keys.splice(index,1);
+        delete cards[target];
+    }
     
 }
 

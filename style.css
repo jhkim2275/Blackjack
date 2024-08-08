@@ -2,7 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 30px;
+    gap: 200px;
 }
 
 header {
@@ -15,4 +15,18 @@ footer {
     background-color: grey;
     display: flex;
     justify-content: center;
+}
+
+.computerCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+}
+
+.playerCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
 }
