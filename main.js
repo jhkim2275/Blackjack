@@ -2,6 +2,7 @@ let computerScore = 0;
 let playerScore = 0;
 let computerCards = document.querySelector(".computerCards");
 let playerCards = document.querySelector(".playerCards");
+let playerTurn = true;
 
 let cards = {
     spade1: 1, spade2: 2, spade3: 3, spade4: 4, spade5: 5, spade6: 6, spade7: 7, spade8: 8, spade9: 9, spade10: 10, spadeJack: 10, spadeQueen: 10, spadeKing: 10, spadeAce: 11,
@@ -13,18 +14,42 @@ let keys = Object.keys(cards);
 playGame();
 function playGame(){
     computerStart();
-    playerStart();
+    playerStart(2);
+    playerChoice();
+}
+
+
+function playerChoice() {
+    if (!playerTurn){
+        return;
+    }
+    const stayButton = document.querySelector("#stay");
+    const hitButton = document.querySelector("#hit");
+    stayButton.addEventListener("click", () => {playerTurn = false;});
+    hitButton.addEventListener("click", () => {
+        if (playerTurn){
+            if (playerScore>21){
+                playerTurn = false;
+            } else {
+                playerStart(1);
+                playerChoice();
+            }
+        }
+    });
+    
 }
 
 /* The function for randomly choosing the two player cards*/
-function playerStart() {
-    for (let i=0; i<2; i++){
+function playerStart(numCards) {
+    for (let i=0; i<numCards; i++){
         let index = Math.floor(Math.random() * Object.keys(cards).length);
         let card = document.createElement("p");
         card.textContent = keys[index];
         playerCards.appendChild(card);
         let target = keys[index];
         keys.splice(index,1);
+        playerScore+=cards[target];
+        console.log(playerScore);
         delete cards[target];
     }
     
@@ -37,9 +62,7 @@ function computerStart() {
     card.textContent = keys[index];
     computerCards.appendChild(card);
     let target = keys[index];
-    //console.log(target);
     keys.splice(index,1);
-    //console.log(cards[target]);
+    computerScore+=cards[target];
     delete cards[target];
-    //console.log(Object.keys(cards).length);
 }
