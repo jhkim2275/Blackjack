@@ -12,7 +12,7 @@ computerCards.style.display = "flex";
 computerCards.style.flexDirection = "row";
 computerCards.style.justifyContent = "center";
 computerCards.style.gap = "30px";
-computerCards.style.padding = "50px";
+computerCards.style.padding = "30px";
 
 /* Styling for Player Cards section*/
 let playerCards = document.createElement("div");
@@ -20,7 +20,7 @@ playerCards.style.display = "flex";
 playerCards.style.flexDirection = "row";
 playerCards.style.justifyContent = "center";
 playerCards.style.gap = "30px";
-playerCards.style.padding = "50px";
+playerCards.style.padding = "30px";
 
 /* Styling for Player action section*/
 const stayButton = document.createElement("button");
@@ -34,7 +34,7 @@ playerButtons.style.display = "flex";
 playerButtons.style.flexDirection = "row";
 playerButtons.style.justifyContent = "center";
 playerButtons.style.gap = "50px";
-playerButtons.style.margin = "50px";
+playerButtons.style.margin = "30px";
 
 /* Score Board*/
 let computerValue = document.createElement("h2");
