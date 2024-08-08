@@ -1,9 +1,41 @@
 let computerScore = 0;
 let playerScore = 0;
-let computerCards = document.querySelector(".computerCards");
-let playerCards = document.querySelector(".playerCards");
 let playerTurn = true;
 let computerTurn = true;
+// let computerCards = document.querySelector(".computerCards");
+// let playerCards = document.querySelector(".playerCards");
+const cardHolder = document.querySelector(".cardHolder");
+
+/* Styling for Computer Cards section*/
+let computerCards = document.createElement("div");
+computerCards.style.display = "flex";
+computerCards.style.flexDirection = "row";
+computerCards.style.justifyContent = "center";
+computerCards.style.gap = "30px";
+
+/* Styling for Player Cards section*/
+let playerCards = document.createElement("div");
+playerCards.style.display = "flex";
+playerCards.style.flexDirection = "row";
+playerCards.style.justifyContent = "center";
+playerCards.style.gap = "30px";
+
+/* Styling for Player action section*/
+const stayButton = document.createElement("button");
+stayButton.textContent = "Stay";
+const hitButton = document.createElement("button");
+hitButton.textContent = "Hit";
+let playerButtons = document.createElement("div");
+playerButtons.appendChild(stayButton);
+playerButtons.appendChild(hitButton);
+playerButtons.style.display = "flex";
+playerButtons.style.flexDirection = "row";
+playerButtons.style.justifyContent = "center";
+playerButtons.style.gap = "50px";
+cardHolder.appendChild(computerCards);
+cardHolder.appendChild(playerCards);
+cardHolder.appendChild(playerButtons);
+
 
 let cards = {
     spade1: 1, spade2: 2, spade3: 3, spade4: 4, spade5: 5, spade6: 6, spade7: 7, spade8: 8, spade9: 9, spade10: 10, spadeJack: 10, spadeQueen: 10, spadeKing: 10, spadeAce: 11,
@@ -40,8 +72,6 @@ function playerChoice() {
     if (!playerTurn){
         return;
     }
-    const stayButton = document.querySelector("#stay");
-    const hitButton = document.querySelector("#hit");
     stayButton.addEventListener("click", () => {
         if (playerTurn){
             playerTurn = false;
@@ -71,7 +101,6 @@ function playerStart(numCards) {
         let target = keys[index];
         keys.splice(index,1);
         playerScore+=cards[target];
-        console.log(playerScore);
         delete cards[target];
     }
     
@@ -88,25 +117,46 @@ function computerStart() {
     computerScore+=cards[target];
     delete cards[target];
 }
-const cardHolder = document.querySelector(".cardHolder");
+
 function playerWin(){
+    // stayButton.style.visibility = "hidden";
+    // hitButton.style.visibility = "hidden";
     setTimeout(function() {
+        // playerCards.style.visibility = "hidden";
+        // computerCards.style.visibility = "hidden";
+        cardHolder.removeChild(computerCards);
+        cardHolder.removeChild(playerCards);
+        cardHolder.removeChild(playerButtons);
         const winMessage = document.createElement("h1");
         winMessage.textContent = "Congratulations! You Win!";
         cardHolder.appendChild(winMessage); 
-    },2000);
+    },3000);
 }
 function computerWin() {
+    // stayButton.style.visibility = "hidden";
+    // hitButton.style.visibility = "hidden";
     setTimeout(function() {
+        //playerCards.style.visibility = "hidden";
+        //computerCards.style.visibility = "hidden";
+        cardHolder.removeChild(computerCards);
+        cardHolder.removeChild(playerCards);
+        cardHolder.removeChild(playerButtons);
         const winMessage = document.createElement("h1");
         winMessage.textContent = "Sorry ... You Lose";
         cardHolder.appendChild(winMessage); 
-    },2000); 
+    },3000); 
 }
 function tie() {
+    //stayButton.style.visibility = "hidden";
+    //hitButton.style.visibility = "hidden";
     setTimeout(function() {
+        //playerCards.style.visibility = "hidden";
+        //computerCards.style.visibility = "hidden";
+        cardHolder.removeChild(computerCards);
+        cardHolder.removeChild(playerCards);
+        cardHolder.removeChild(playerButtons);
         const winMessage = document.createElement("h1");
         winMessage.textContent = "You Tied!";
         cardHolder.appendChild(winMessage); 
-    },2000); 
+    },3000); 
 }
