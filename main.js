@@ -166,7 +166,7 @@ function playerWin(){
         const winMessage = document.createElement("h1");
         winMessage.textContent = "Congratulations! You Win!";
         cardHolder.appendChild(winMessage); 
-    },3000);
+    },2000);
 }
 /* What to do when computer wins*/
 function computerWin() {
@@ -177,7 +177,7 @@ function computerWin() {
         const winMessage = document.createElement("h1");
         winMessage.textContent = "Sorry ... You Lose";
         cardHolder.appendChild(winMessage); 
-    },3000); 
+    },2000); 
 }
 /* What to do when there is a tie*/
 function tie() {
@@ -188,5 +188,5 @@ function tie() {
         const winMessage = document.createElement("h1");
         winMessage.textContent = "You Tied!";
         cardHolder.appendChild(winMessage); 
-    },3000); 
+    },2000); 
 }
