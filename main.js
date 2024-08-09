@@ -69,6 +69,7 @@ function playGame(){
     playerChoice();
 }
 
+/* Computer Algorithm for making the choice*/
 function computerChoice() {
     while (computerScore<15){
         computerStart();
@@ -86,6 +87,7 @@ function computerChoice() {
     }
 }
 
+/* Responding to the player's choice during the game*/
 function playerChoice() {
     if (!playerTurn){
         return;
@@ -108,7 +110,7 @@ function playerChoice() {
     
 }
 
-/* The function for randomly choosing the two player cards*/
+/* The function for randomly choosing the numCards amount of cards*/
 function playerStart(numCards) {
     for (let i=0; i<numCards; i++){
         let index = Math.floor(Math.random() * Object.keys(cards).length);
@@ -137,6 +139,7 @@ function computerStart() {
     delete cards[target];
 }
 
+/* What to do when player wins*/
 function playerWin(){
     setTimeout(function() {
         cardHolder.removeChild(computerCards);
@@ -147,6 +150,7 @@ function playerWin(){
         cardHolder.appendChild(winMessage); 
     },3000);
 }
+/* What to do when computer wins*/
 function computerWin() {
     setTimeout(function() {
         cardHolder.removeChild(computerCards);
@@ -157,6 +161,7 @@ function computerWin() {
         cardHolder.appendChild(winMessage); 
     },3000); 
 }
+/* What to do when there is a tie*/
 function tie() {
     setTimeout(function() {
         cardHolder.removeChild(computerCards);
