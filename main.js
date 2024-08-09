@@ -1,4 +1,4 @@
-window.confirm("In this example of BlackJack, the aces are all valued as 1 and there are two joker cards valued at 11!")
+window.alert("In this example of BlackJack, the aces are all valued as 1 and there are two joker cards valued at 11!")
 
 let computerScore = 0;
 let playerScore = 0;
