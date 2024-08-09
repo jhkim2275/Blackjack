@@ -28,23 +28,3 @@ h1 {
     display: flex;
     justify-content: center;
 }
-
-.computerCards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 30px;
-}
-
-.playerCards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 30px;
-}
-
-.playerChoice {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-}
