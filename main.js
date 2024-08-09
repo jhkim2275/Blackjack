@@ -71,9 +71,27 @@ function playGame(){
 
 /* Computer Algorithm for making the choice*/
 function computerChoice() {
-    while (computerScore<15){
-        computerStart();
+    // while (computerScore<15){
+    //     computerStart();
+    // }
+    while (computerTurn){
+        let target = 21-computerScore;
+        let favorableCards = 0;
+        let unfavorableCards = 0;
+        for (let i = 0; i<Object.keys(cards).length;i++){
+            if(cards[keys[i]]<=target){
+                favorableCards++;
+            } else {
+                unfavorableCards++;
+            }
+        }
+        if (favorableCards>unfavorableCards){
+            computerStart();
+        } else {
+            computerTurn = false;
+        }
     }
+    // Displaying Winnter Message
     if (computerScore>21){
         playerWin();
     } else {
