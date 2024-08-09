@@ -101,7 +101,6 @@ function playerChoice() {
             playerStart(1);
             if (playerScore>21){
                 playerTurn = false;
-                // Prompt Bust Message
                 computerWin();
             }
         }
@@ -139,11 +138,7 @@ function computerStart() {
 }
 
 function playerWin(){
-    // stayButton.style.visibility = "hidden";
-    // hitButton.style.visibility = "hidden";
     setTimeout(function() {
-        // playerCards.style.visibility = "hidden";
-        // computerCards.style.visibility = "hidden";
         cardHolder.removeChild(computerCards);
         cardHolder.removeChild(playerCards);
         cardHolder.removeChild(playerButtons);
@@ -153,11 +148,7 @@ function playerWin(){
     },3000);
 }
 function computerWin() {
-    // stayButton.style.visibility = "hidden";
-    // hitButton.style.visibility = "hidden";
     setTimeout(function() {
-        //playerCards.style.visibility = "hidden";
-        //computerCards.style.visibility = "hidden";
         cardHolder.removeChild(computerCards);
         cardHolder.removeChild(playerCards);
         cardHolder.removeChild(playerButtons);
@@ -167,11 +158,7 @@ function computerWin() {
     },3000); 
 }
 function tie() {
-    //stayButton.style.visibility = "hidden";
-    //hitButton.style.visibility = "hidden";
     setTimeout(function() {
-        //playerCards.style.visibility = "hidden";
-        //computerCards.style.visibility = "hidden";
         cardHolder.removeChild(computerCards);
         cardHolder.removeChild(playerCards);
         cardHolder.removeChild(playerButtons);
