@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     gap: 80px;
+    height: 900px;
 }
 
 header {
