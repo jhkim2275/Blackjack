@@ -65,11 +65,48 @@ let cards = {
     redJoker: 11, blackJoker: 11
 }
 let keys = Object.keys(cards);
+
 playGame();
+
 function playGame(){
     computerStart();
     playerStart(2);
     playerChoice();
+}
+
+/* Function to clear the game and start over*/
+function clearGame() {
+    // Reset current elements
+    cardHolder.removeChild(computerCards);
+    computerCards = document.createElement("div");
+    computerCards.style.display = "flex";
+    computerCards.style.flexDirection = "row";
+    computerCards.style.justifyContent = "center";
+    computerCards.style.gap = "30px";
+    computerCards.style.padding = "30px";
+    cardHolder.appendChild(computerCards);
+
+    cardHolder.removeChild(playerCards);
+    playerCards = document.createElement("div");
+    playerCards.style.display = "flex";
+    playerCards.style.flexDirection = "row";
+    playerCards.style.justifyContent = "center";
+    playerCards.style.gap = "30px";
+    playerCards.style.padding = "30px";
+    cardHolder.appendChild(playerCards);
+    // Reset cards
+    cards = {
+        spade2: 2, spade3: 3, spade4: 4, spade5: 5, spade6: 6, spade7: 7, spade8: 8, spade9: 9, spade10: 10, spadeJack: 10, spadeQueen: 10, spadeKing: 10, spadeAce: 1,
+        club2: 2, club3: 3, club4: 4, club5: 5, club6: 6, club7: 7, club8: 8, club9: 9, club10: 10, clubJack: 10, clubQueen: 10, clubKing: 10, clubAce: 1,
+        heart2: 2, heart3: 3, heart4: 4, heart5: 5, heart6: 6, heart7: 7, heart8: 8, heart9: 9, heart10: 10, heartJack: 10, heartQueen: 10, heartKing: 10, heartAce: 1, 
+        diamond2: 2, diamond3: 3, diamond4: 4, diamond5: 5, diamond6: 6, diamond7: 7, diamond8: 8, diamond9: 9, diamond10: 10, diamondJack: 10, diamondQueen: 10, diamondKing: 10, diamondAce: 1,
+        redJoker: 11, blackJoker: 11
+    }
+    // Reset score
+    playerScore = 0;
+    playerValue.textContent = 0;
+    computerScore = 0;
+    computerValue.textContent = 0;
 }
 
 /* Computer Algorithm for making the choice*/
@@ -168,33 +205,51 @@ function computerStart() {
 /* What to do when player wins*/
 function playerWin(){
     setTimeout(function() {
-        cardHolder.removeChild(computerCards);
-        cardHolder.removeChild(playerCards);
-        cardHolder.removeChild(playerButtons);
-        const winMessage = document.createElement("h1");
-        winMessage.textContent = "Congratulations! You Win!";
-        cardHolder.appendChild(winMessage); 
-    },2000);
+        // cardHolder.removeChild(computerCards);
+        // cardHolder.removeChild(playerCards);
+        // cardHolder.removeChild(playerButtons);
+        // cardHolder.style.justifyContent = "center";
+        // const winMessage = document.createElement("h1");
+        // winMessage.textContent = "Congratulations! You Win!";
+        // cardHolder.appendChild(winMessage); 
+        if (confirm("Congratulations! You Win! Press Ok to play another round!")){
+            // clearGame();
+            // playGame();
+            window.location.href = "./index.html";
+        }
+    },1000);
 }
 /* What to do when computer wins*/
 function computerWin() {
     setTimeout(function() {
-        cardHolder.removeChild(computerCards);
-        cardHolder.removeChild(playerCards);
-        cardHolder.removeChild(playerButtons);
-        const winMessage = document.createElement("h1");
-        winMessage.textContent = "Sorry ... You Lose";
-        cardHolder.appendChild(winMessage); 
-    },2000); 
+        // cardHolder.removeChild(computerCards);
+        // cardHolder.removeChild(playerCards);
+        // cardHolder.removeChild(playerButtons);
+        // cardHolder.style.justifyContent = "center";
+        // const winMessage = document.createElement("h1");
+        // winMessage.textContent = "Sorry ... You Lose";
+        // cardHolder.appendChild(winMessage); 
+        if (confirm("Sorry ... You Lose. Press Ok to play another round!")){
+            // clearGame();
+            // playGame();
+            window.location.href = "./index.html";
+        }
+    },1000); 
 }
 /* What to do when there is a tie*/
 function tie() {
     setTimeout(function() {
-        cardHolder.removeChild(computerCards);
-        cardHolder.removeChild(playerCards);
-        cardHolder.removeChild(playerButtons);
-        const winMessage = document.createElement("h1");
-        winMessage.textContent = "You Tied!";
-        cardHolder.appendChild(winMessage); 
-    },2000); 
+        // cardHolder.removeChild(computerCards);
+        // cardHolder.removeChild(playerCards);
+        // cardHolder.removeChild(playerButtons);
+        // cardHolder.style.justifyContent = "center";
+        // const winMessage = document.createElement("h1");
+        // winMessage.textContent = "You Tied!";
+        // cardHolder.appendChild(winMessage); 
+        if (confirm("You Tied! Press Ok to play another round!")){
+            // clearGame();
+            // playGame();
+            window.location.href = "./index.html";
+        }
+    },1000); 
 }
