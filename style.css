@@ -2,20 +2,27 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 80px;
-    height: 900px;
+    height: 100%;
+}
+
+html {
+    height: 100%;
 }
 
 header {
     background-color: grey;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 10%;
 }
 
 footer {
     background-color: grey;
     display: flex;
     justify-content: center;
+    align-items: center;;
+    height: 10%;
 }
 
 button {
@@ -28,4 +35,13 @@ button {
 h1 {
     display: flex;
     justify-content: center;
+}
+
+.cardHolder {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
 }
