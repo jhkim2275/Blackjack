@@ -144,6 +144,9 @@ function playerStart(numCards) {
         playerScore+=cards[target];
         playerValue.textContent = "Player Score: " + playerScore;
         delete cards[target];
+        if (playerScore == 21){
+            playerWin();
+        }
     }
     
 }
