@@ -135,8 +135,9 @@ function playerChoice() {
 function playerStart(numCards) {
     for (let i=0; i<numCards; i++){
         let index = Math.floor(Math.random() * Object.keys(cards).length);
-        let card = document.createElement("p");
-        card.textContent = keys[index];
+        console.log(keys[index]);
+        let card = document.createElement("img");
+        card.src = "./Cards/" + keys[index] + ".png";
         playerCards.appendChild(card);
         let target = keys[index];
         keys.splice(index,1);
@@ -150,8 +151,9 @@ function playerStart(numCards) {
 /* The function for randomly choosing the first computer card*/
 function computerStart() {
     let index = Math.floor(Math.random() * Object.keys(cards).length);
-    let card = document.createElement("p");
-    card.textContent = keys[index];
+    console.log(keys[index]);
+    let card = document.createElement("img");
+    card.src = "./Cards/" + keys[index] + ".png";
     computerCards.appendChild(card);
     let target = keys[index];
     keys.splice(index,1);
